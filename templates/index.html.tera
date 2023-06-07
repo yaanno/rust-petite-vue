@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Rust & Vue</title>
+    <title>Rust & Petite-Vue</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Experiment with Rust &amp; Vue.js">
     <link rel="stylesheet" href="/static/tailwind.css" />
@@ -18,19 +18,13 @@
         v-model="query"
         @keyup="fetchData"
       />
-      <div
-        v-if="!query.length"
-        class="grid grid-cols-[15%_25%_10%_10%_10%_10%_10%_10%] mt-3"
-        id="table"
-      >
+      </div>
+      {# initial page load #}
+      <div v-if="!query.length">
         {% include "partial" %}
       </div>
-      <div
-        v-else
-        class="grid grid-cols-[15%_25%_10%_10%_10%_10%_10%_10%] mt-3"
-        id="table"
-        v-html="data"
-      ></div>
+      {# partial loaded by vue #}
+      <div v-else v-html="data"></div>
     </main>
     <script type="module" src="/static/app.js"></script>
   </body>
