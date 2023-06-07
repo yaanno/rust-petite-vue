@@ -64,7 +64,7 @@ fn index() -> Template {
         .collect();
 
     let context = TemplateData {
-        pokemon: pokemon,
+        pokemon
     };
 
     Template::render("index", &context)
